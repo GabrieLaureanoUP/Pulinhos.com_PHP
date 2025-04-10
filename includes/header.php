@@ -1,8 +1,8 @@
 <?php
 session_start();
-require_once 'includes/config.php';
-require_once 'includes/data.php';
-require_once 'includes/functions.php';
+require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/data.php';
+require_once __DIR__ . '/functions.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

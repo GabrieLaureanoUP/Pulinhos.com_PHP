@@ -11,12 +11,14 @@ if (isset($_SESSION['novos_itens']) && is_array($_SESSION['novos_itens'])) {
 // Obter categorias e tipos
 $categorias = getCategorias($catalogo);
 $tipos = getTipos($catalogo);
+$nivelDeCuidado = ['Fácil', 'Moderado', 'Alto'];
 
 // Usar nossa nova função para filtrar os itens
 $categoria_filtro = isset($_GET['categoria']) ? $_GET['categoria'] : '';
 $tipo_filtro = isset($_GET['tipo']) ? $_GET['tipo'] : '';
 $nome_filtro = isset($_GET['nome']) ? $_GET['nome'] : '';
-$itens_filtrados = filtrarItens($catalogo, $categoria_filtro, $tipo_filtro, $nome_filtro);
+$nivelDeCuidado_filtro = isset($_GET['nivel_cuidado']) ? $_GET['nivel_cuidado'] : 'Moderado';
+$itens_filtrados = filtrarItens($catalogo, $categoria_filtro, $tipo_filtro, $nome_filtro, $nivelDeCuidado_filtro);
 ?>
 
 <div class="container">

@@ -50,7 +50,7 @@ function buscarItemPorId($array, $id) {
     return null;
 }
 
-function filtrarItens($array, $categoria = null, $tipo = null, $nome = null) {
+function filtrarItens($array, $categoria = null, $tipo = null, $nome = null, $nivelCuidado = null) {
     $resultado = $array;
     
     if ($categoria) {
@@ -69,6 +69,13 @@ function filtrarItens($array, $categoria = null, $tipo = null, $nome = null) {
         $resultado = array_filter($resultado, function($item) use ($nome) {
             // Busca por título (case-insensitive)
             return stripos($item['titulo'], $nome) !== false;
+        });
+    }
+    
+    if ($nivelCuidado) {
+        $resultado = array_filter($resultado, function($item) use ($nivelCuidado) {
+            // Verifica se o nível de cuidado do item corresponde ao filtro
+            return isset($item['nivel_cuidado']) && $item['nivel_cuidado'] === $nivelCuidado;
         });
     }
     

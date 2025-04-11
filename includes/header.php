@@ -21,8 +21,7 @@ require_once __DIR__ . '/functions.php';
                 <a class="navbar-brand" href="index.php"><?php echo SITE_NAME; ?></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">                    <ul class="navbar-nav mr-auto">
+                </button>                <div class="collapse navbar-collapse" id="navbarNav">                    <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="index.php"><i class="fas fa-home"></i> Início</a>
                         </li>
@@ -31,7 +30,15 @@ require_once __DIR__ . '/functions.php';
                         </li>                        <li class="nav-item">
                             <a class="nav-link" href="guia_cuidados.php"><i class="fas fa-book"></i> Guia de Cuidados</a>
                         </li>
-                    </ul>                    <ul class="navbar-nav">
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0 mr-3" action="filtrar.php" method="GET">
+                        <div class="input-group">
+                            <input class="form-control" type="search" placeholder="Buscar por nome" aria-label="Buscar" name="nome">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                    </form><ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="protegido.php"><i class="fas fa-lock"></i> Área Restrita</a>
                         </li>

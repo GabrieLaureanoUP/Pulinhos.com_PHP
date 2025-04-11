@@ -50,7 +50,7 @@ function buscarItemPorId($array, $id) {
     return null;
 }
 
-function filtrarItens($array, $categoria = null, $tipo = null) {
+function filtrarItens($array, $categoria = null, $tipo = null, $nome = null) {
     $resultado = $array;
     
     if ($categoria) {
@@ -62,6 +62,13 @@ function filtrarItens($array, $categoria = null, $tipo = null) {
     if ($tipo) {
         $resultado = array_filter($resultado, function($item) use ($tipo) {
             return $item['tipo'] === $tipo;
+        });
+    }
+    
+    if ($nome) {
+        $resultado = array_filter($resultado, function($item) use ($nome) {
+            // Busca por título (case-insensitive)
+            return stripos($item['titulo'], $nome) !== false;
         });
     }
     

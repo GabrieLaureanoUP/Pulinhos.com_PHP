@@ -58,6 +58,62 @@ a:hover {
     padding: 0.5rem;
 }
 
+/* Barra de Pesquisa */
+.form-inline {
+    display: flex;
+    align-items: center;
+}
+
+.form-inline .input-group {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(29, 23, 22, 0.1);
+    transition: all 0.3s ease;
+    height: 38px;
+}
+
+.form-inline .input-group:focus-within {
+    box-shadow: 0 2px 8px rgba(165, 82, 51, 0.25);
+}
+
+.form-inline .form-control {
+    border: 1px solid #f3bc77;
+    background-color: #fff;
+    color: #402a23;
+    font-size: 0.9rem;
+    height: 38px;
+    padding: 0 15px;
+    border-radius: 20px 0 0 20px;
+}
+
+.form-inline .form-control:focus {
+    border-color: #a55233;
+    box-shadow: none;
+}
+
+.form-inline .input-group-append {
+    height: 38px;
+}
+
+.form-inline .btn-outline-success {
+    color: #a55233;
+    border: 1px solid #f3bc77;
+    background-color: #fff;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 15px;
+    border-radius: 0 20px 20px 0;
+}
+
+.form-inline .btn-outline-success:hover,
+.form-inline .btn-outline-success:focus {
+    color: #fff;
+    background-color: #a55233;
+    border-color: #a55233;
+}
+
 /* Cards */
 .card {
     background-color: #fff;

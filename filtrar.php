@@ -15,7 +15,8 @@ $tipos = getTipos($catalogo);
 // Usar nossa nova função para filtrar os itens
 $categoria_filtro = isset($_GET['categoria']) ? $_GET['categoria'] : '';
 $tipo_filtro = isset($_GET['tipo']) ? $_GET['tipo'] : '';
-$itens_filtrados = filtrarItens($catalogo, $categoria_filtro, $tipo_filtro);
+$nome_filtro = isset($_GET['nome']) ? $_GET['nome'] : '';
+$itens_filtrados = filtrarItens($catalogo, $categoria_filtro, $tipo_filtro, $nome_filtro);
 ?>
 
 <div class="container">

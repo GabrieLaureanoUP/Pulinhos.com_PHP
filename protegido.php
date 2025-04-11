@@ -1,13 +1,11 @@
 <?php
 require_once 'includes/header.php';
 
-// Verificar se o usuário está logado
 if (!isset($_SESSION['logado']) || !$_SESSION['logado']) {
     header('Location: login.php');
     exit;
 }
 
-// Lógica para deletar um item específico
 if (isset($_POST['delete_item']) && isset($_POST['item_id'])) {
     $item_id = intval($_POST['item_id']);
     if (isset($_SESSION['novos_itens'])) {
@@ -23,7 +21,6 @@ if (isset($_POST['delete_item']) && isset($_POST['item_id'])) {
     }
 }
 
-// Lógica para deletar todos os itens
 if (isset($_POST['delete_all'])) {
     $_SESSION['novos_itens'] = [];
     $mensagem = 'Todos os itens foram deletados com sucesso!';
@@ -33,19 +30,15 @@ if (isset($_POST['delete_all'])) {
 $mensagem = isset($mensagem) ? $mensagem : '';
 $tipo_mensagem = isset($tipo_mensagem) ? $tipo_mensagem : '';
 
-// Verificar se um novo item foi submetido
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['delete_item']) && !isset($_POST['delete_all'])) {
-    // Validação simples para criação de nova raça
     if (empty($_POST['titulo']) || empty($_POST['categoria']) || empty($_POST['tipo']) || empty($_POST['descricao'])) {
         $mensagem = 'Por favor, preencha todos os campos obrigatórios.';
         $tipo_mensagem = 'danger';
     } else {
-        // Inicializar o array de novos itens se não existir
         if (!isset($_SESSION['novos_itens'])) {
             $_SESSION['novos_itens'] = [];
         }
 
-        // Encontrar o maior ID atual
         $maior_id = 0;
         foreach ($catalogo as $item) {
             if ($item['id'] > $maior_id) {
@@ -61,7 +54,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['delete_item']) && !i
             }
         }
 
-        // Criar o novo item com informações da raça
         $novo_item = [
             'id' => $maior_id + 1,
             'titulo' => $_POST['titulo'],
@@ -77,7 +69,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['delete_item']) && !i
             'habitat' => $_POST['categoria']
         ];
         
-        // Adicionar o novo item à sessão
         $_SESSION['novos_itens'][] = $novo_item;
         
         $mensagem = 'Raça cadastrada com sucesso!';
@@ -85,7 +76,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['delete_item']) && !i
     }
 }
 
-// Obter categorias e tipos existentes para o formulário
 $categorias = getCategorias($catalogo);
 $tipos = getTipos($catalogo);
 ?>

@@ -97,7 +97,7 @@ $itens_filtrados = filtrarItens($catalogo, $categoria_filtro, $tipo_filtro, $nom
     </div>
 
     <div><br></div>
-    <!-- Results summary -->
+    
     <div class="results-summary mb-3">
         <div class="d-flex justify-content-between align-items-center">
             <h3 class="mb-0">
@@ -112,7 +112,6 @@ $itens_filtrados = filtrarItens($catalogo, $categoria_filtro, $tipo_filtro, $nom
         </div>
     </div>
 
-    <!-- Resultados do filtro -->
     <div class="row">
         <?php if (empty($itens_filtrados)): ?>
             <div class="col-12">

@@ -1,7 +1,5 @@
 <?php
-// Iniciar ou retomar a sessão com configurações seguras
 function init_session() {
-    // Configurar opções seguras para a sessão
     ini_set('session.cookie_httponly', 1);
     ini_set('session.use_only_cookies', 1);
     ini_set('session.cookie_secure', 1);
@@ -10,7 +8,6 @@ function init_session() {
         session_start();
     }
     
-    // Verificar timeout da sessão (30 minutos)
     if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 1800)) {
         session_unset();
         session_destroy();
@@ -18,7 +15,6 @@ function init_session() {
         exit;
     }
     
-    // Regenerar ID da sessão periodicamente para prevenir fixação de sessão
     if (!isset($_SESSION['created'])) {
         $_SESSION['created'] = time();
     } else if (time() - $_SESSION['created'] > 1800) {
@@ -26,11 +22,9 @@ function init_session() {
         $_SESSION['created'] = time();
     }
     
-    // Atualizar último acesso
     $_SESSION['last_activity'] = time();
 }
 
-// Verificar se o usuário está autenticado
 function check_auth() {
     init_session();
     if (!isset($_SESSION['logado']) || !$_SESSION['logado']) {
@@ -39,7 +33,6 @@ function check_auth() {
     }
 }
 
-// Função para logout seguro
 function logout() {
     session_start();
     session_unset();

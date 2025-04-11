@@ -8,8 +8,7 @@ define('ITEMS_PER_PAGE', 15);
 define('ENABLE_RATINGS', true);
 define('DEBUG_MODE', false);
 
-// Credenciais de usuário fixas para ambiente acadêmico
 $users = [
-    'admin' => '$2y$10$wok9qUWEwYm8AoHkS8QJXecLwcwfFZgHHv0ZD3zMz/Dbytle0lIga' // hash de 'Admin123@'
+    'admin' => '$2y$10$wok9qUWEwYm8AoHkS8QJXecLwcwfFZgHHv0ZD3zMz/Dbytle0lIga' 
 ];
 ?>

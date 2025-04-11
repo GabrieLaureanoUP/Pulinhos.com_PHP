@@ -1,7 +1,6 @@
 <?php
 require_once 'includes/header.php';
 
-// Adiciona os itens da sessão (se existirem) ao catálogo
 if (isset($_SESSION['novos_itens']) && is_array($_SESSION['novos_itens'])) {
     foreach ($_SESSION['novos_itens'] as $item) {
         $catalogo[] = $item;

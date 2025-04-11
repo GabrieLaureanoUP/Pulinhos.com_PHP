@@ -64,17 +64,14 @@ function filtrarItens($array, $categoria = null, $tipo = null, $nome = null, $ni
             return $item['tipo'] === $tipo;
         });
     }
-    
-    if ($nome) {
+      if ($nome) {
         $resultado = array_filter($resultado, function($item) use ($nome) {
-            // Busca por título (case-insensitive)
             return stripos($item['titulo'], $nome) !== false;
         });
     }
     
     if ($nivelCuidado) {
         $resultado = array_filter($resultado, function($item) use ($nivelCuidado) {
-            // Verifica se o nível de cuidado do item corresponde ao filtro
             return isset($item['nivel_cuidado']) && $item['nivel_cuidado'] === $nivelCuidado;
         });
     }
@@ -108,7 +105,6 @@ function getNivelCuidadoInfo($nivel) {
     ];
 }
 
-// Funções para gerenciamento de senhas
 function hashPassword($password) {
     return password_hash($password, PASSWORD_BCRYPT, ['cost' => 10]);
 }
@@ -116,8 +112,6 @@ function hashPassword($password) {
 function verificarSenha($password, $hash) {
     return password_verify($password, $hash);
 }
-
-// Função para validar força da senha
 function validarForcaSenha($password) {
     // Mínimo 8 caracteres
     if (strlen($password) < 8) {

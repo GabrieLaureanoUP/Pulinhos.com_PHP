@@ -20,7 +20,6 @@ require_once 'includes/header.php';
     </div>
 
     <div class="row guide-content">
-        <!-- Seção de Alimentação -->
         <div class="col-lg-6 mb-4">
             <div class="guide-card food-card">
                 <div class="card-icon">
@@ -50,7 +49,6 @@ require_once 'includes/header.php';
             </div>
         </div>
 
-        <!-- Seção de Ambiente -->
         <div class="col-lg-6 mb-4">
             <div class="guide-card environment-card">
                 <div class="card-icon">
@@ -79,7 +77,6 @@ require_once 'includes/header.php';
             </div>
         </div>
 
-        <!-- Seção de Cuidados de Saúde -->
         <div class="col-lg-6 mb-4">
             <div class="guide-card health-card">
                 <div class="card-icon">
@@ -109,7 +106,6 @@ require_once 'includes/header.php';
             </div>
         </div>
 
-        <!-- Seção de Curiosidades -->
         <div class="col-lg-6 mb-4">
             <div class="guide-card facts-card">
                 <div class="card-icon">
